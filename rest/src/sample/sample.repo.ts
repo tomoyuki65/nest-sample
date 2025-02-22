@@ -25,17 +25,14 @@ export class SampleRepository {
 
   // 外部API実行用のコードサンプル
   async execExternalApi(): Promise<any> {
-    const url = "https://api.thecatapi.com/v1/images/search";
+    const url = 'https://api.thecatapi.com/v1/images/search';
 
     try {
-      const res = await firstValueFrom(
-        this.httpService.get<any>(url),
-      );
+      const res = await firstValueFrom(this.httpService.get<any>(url));
 
       return res.data;
     } catch (error) {
       console.error(error);
     }
   }
-
 }

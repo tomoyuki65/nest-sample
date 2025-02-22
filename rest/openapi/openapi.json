@@ -1,0 +1,135 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/api/v1/sample/get": {
+      "get": {
+        "description": "GETメソッドのサンプルAPI",
+        "operationId": "SampleController_getSample",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "APIが正常終了",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSampleResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Sample"
+        ]
+      }
+    },
+    "/api/v1/sample/post": {
+      "post": {
+        "description": "POSTメソッドのサンプルAPI",
+        "operationId": "SampleController_postSample",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostSampleRequestBodyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "APIが正常終了",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostSampleResponseDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Sample"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "SampleのAPI仕様書",
+    "description": "Nest.jsで作成したAPIの仕様書です。",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "GetSampleResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "text"
+        ]
+      },
+      "PostSampleRequestBodyDto": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ]
+      },
+      "PostSampleResponseDto": {
+        "type": "object",
+        "properties": {
+          "upperText": {
+            "type": "string"
+          },
+          "lowerText": {
+            "type": "string"
+          },
+          "textLength": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "upperText",
+          "lowerText",
+          "textLength"
+        ]
+      }
+    }
+  }
+}
