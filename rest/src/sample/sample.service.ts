@@ -20,6 +20,8 @@ export class SampleService {
       // eslint-disable-next-line
       const res = await this.sampleRepo.textProcessing(body.text);
 
+      console.log(test);
+
       // eslint-disable-next-line
       return res.data;
     } catch (error) {
